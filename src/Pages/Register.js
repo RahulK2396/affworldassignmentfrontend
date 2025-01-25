@@ -33,7 +33,10 @@ const Register = () => {
       googleId: decodedToken.sub,
     };
     try {
-      const res = await  axios.post('https://affworld-assignment-backend-seven.vercel.app/api/auth/google-login', {token:response.credential} );
+      const res = await  axios.post('https://affworld-assignment-backend-seven.vercel.app/api/auth/google-login', {token:response.credential}, {
+        headers: {
+                'Content-Type': 'application/json',
+            } });
       alert(res.data.message);
       navigate('/task')
     } catch (err) {
