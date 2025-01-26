@@ -17,7 +17,9 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://affworld-assignment-backend-5zi9dckj5-rahuls-projects-3a4f49cc.vercel.app/api/auth/register', formData);
+      const response = await axios.post('https://affworld-assignment-backend-5zi9dckj5-rahuls-projects-3a4f49cc.vercel.app/api/auth/register', formData, {
+  withCredentials: true, 
+});
       setMessage(response.data.message);
       navigate('/task')
     } catch (error) {
