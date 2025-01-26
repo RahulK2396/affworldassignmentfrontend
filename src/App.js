@@ -4,6 +4,7 @@ import ForgotPassword from './Pages/ForgotPassword';
 import {Login} from './Pages/Login';
 import TaskManager from './Pages/Tasks';
 import Feed from './Pages/Feed';
+import ProtectedRoute from './ProtectedRoute';
 
 function App() {
   return (
@@ -12,8 +13,8 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/task" element={<TaskManager />} />
-        <Route path="/feed" element={<Feed />} />
+        <Route path="/" element={<ProtectedRoute><TaskManager /></ProtectedRoute>} />
+        <Route path="/feed" element={<ProtectedRoute><Feed /></ProtectedRoute>} />
       </Routes>
     </Router>
   );
